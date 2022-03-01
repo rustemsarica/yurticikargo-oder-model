@@ -69,11 +69,8 @@
             $response = $istek->createNgiShipmentWithAddress($data);
            
             if($response->XShipmentDataResponse->outFlag==0){
-				//order_products shipping_key shipping_comp insert
-                $this->order_model->update_order_shipping_status($id,$shipping_comp,$uniqno);
-                redirect($this->agent->referrer());
+		//basarılı
             }elseif($response->XShipmentDataResponse->outFlag==2){
                  print_r($response);die;
-                redirect($this->agent->referrer());
             }
          
